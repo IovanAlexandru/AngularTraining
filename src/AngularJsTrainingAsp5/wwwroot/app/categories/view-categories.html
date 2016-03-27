@@ -1,0 +1,16 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Categories</h3>
+    </div>
+    <div class="panel-body">
+        <p ng-show="viewCategoriesVM.categories == 0">
+            There are no categories.
+        </p>
+        <ul class="list-group" ng-show="viewCategoriesVM.categories.length > 0">
+            <li class="list-group-item" ng-repeat="category in viewCategoriesVM.categories">
+                <span class="badge" style="background: {{ category.color }}"></span>
+                {{ category.name }}
+            </li>
+        </ul>
+    </div>
+</div>

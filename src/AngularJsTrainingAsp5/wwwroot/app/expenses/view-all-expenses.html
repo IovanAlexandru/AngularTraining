@@ -1,0 +1,75 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Expenses</h3>
+    </div>
+    <div class="panel-body view-expenses">
+        <div ng-show="allExpensesVM.expenses.length == 0">
+            You have no expenses.
+        </div>
+        <div ng-hide="allExpensesVM.expenses.length == 0">
+            <div class="btn-group btn-group-justified">
+                <a ng-click="allExpensesVM.setView('category')" class="btn btn-default">View by category</a>
+                <a ng-click="allExpensesVM.setView('date')" class="btn btn-default">View by date added</a>
+            </div>
+            <br />
+            <div ng-if="allExpensesVM.viewBy=='category'" class="view-by-category">
+                <div class="panel panel-default" ng-repeat="category in allExpensesVM.categories">
+                    <div class="panel-heading"><span class="badge" style="background-color: {{ category.color }}">&nbsp;</span> {{category.name}}</div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-hover" ng-show="filteredItems.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>Amount</th>
+                                    <th>Notes</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="expense in (filteredItems = (allExpensesVM.expenses | filter:{category:category.id}))">
+                                    <td>{{expense.amount | currency}}</td>
+                                    <td>{{expense.notes}}</td>
+                                    <td>{{expense.date | dateFormatter}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div ng-show="filteredItems.length == 0">
+                            No expenses in this category.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="allExpensesVM.viewBy=='date'" class="view-by-date">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control" id="filterExpense" ng-model="allExpensesVM.expenseFilter" placeholder="Filter...">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <table class="table table-striped table-hover" ng-show="allExpensesVM.expenses.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Notes</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="expense in allExpensesVM.expenses | filter:allExpensesVM.expenseFilter">
+                            <td><span class="badge" style="background-color: {{ allExpensesVM.categoryColors[expense.category] }}">&nbsp;</span></td>
+                            <td>{{expense.amount | currency}}</td>
+                            <td>{{expense.notes}}</td>
+                            <td>{{expense.date | dateFormatter}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div ng-show="allExpensesVM.expenses.length == 0">
+                    No expenses.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

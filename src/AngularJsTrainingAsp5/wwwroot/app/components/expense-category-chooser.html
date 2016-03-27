@@ -1,0 +1,16 @@
+﻿<div ng-show="categories.length > 0">
+    <h4>
+        Choose category
+    </h4>
+    <ul class="list-group select-category-control" ng-show="categories.length > 0">
+        <li class="list-group-item" ng-repeat="category in categories" ng-class="{ 'selected': category == selectedCategory }" ng-click="selectCategory(category)">
+            <span class="checker glyphicon glyphicon-ok" ng-show="category == selectedCategory"></span>
+            <span class="badge" style="background: {{ category.color }}"></span>
+            {{ category.name }}
+        </li>
+    </ul>
+</div>
+<div ng-hide="categories.length > 0">
+    <h5>There are no categories to choose from.</h5>
+</div>
+<hr />

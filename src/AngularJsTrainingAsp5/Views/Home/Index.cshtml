@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularJsTrainingAsp5</title>
+
+    <link type="text/css" href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/css/custom.css" rel="stylesheet" />
+</head>
+<body ng-app="ExpenseManager">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a ui-sref="expenses.list" class="navbar-brand">Expense Manager</a>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a ui-sref="expenses.list" id="themes">Expenses</a>
+                    </li>
+                    <li class="dropdown">
+                        <a ui-sref="expense-categories.list" id="themes">Categories</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/lib/moment/min/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="~/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="~/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <script type="text/javascript" src="~/app/app.js"></script>
+    
+    <script type="text/javascript" src="~/app/components/filters/date-formatter.filter.js"></script>
+
+    <script type="text/javascript" src="~/app/categories/category.service.js"></script>
+    <script type="text/javascript" src="~/app/expenses/expense.service.js"></script>
+
+    <script type="text/javascript" src="~/app/components/expense-category-chooser.directive.js"></script>
+
+    <script type="text/javascript" src="~/app/layout/add-expense.controller.js"></script>
+    <script type="text/javascript" src="~/app/categories/add-category.controller.js"></script>
+    <script type="text/javascript" src="~/app/categories/view-categories.controller.js"></script>
+    <script type="text/javascript" src="~/app/expenses/view-all-expenses.controller.js"></script>
+</body>
+</html>
