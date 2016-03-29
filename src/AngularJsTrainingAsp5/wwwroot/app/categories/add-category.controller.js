@@ -14,13 +14,17 @@
 
 		vm.save = function () {
 			if ($scope.addCategoryForm.$valid) {
-				var response = CategoryService.addCategory(vm.categoryName);
-				if (response.status == "SUCCESS") {
-					vm.clearText();
-				} else {
-					var msg = response.errors.join("\n");
-					alert(msg);
-				}
+			    CategoryService.addCategory(vm.categoryName).then(function success(response) {
+			        if (response.status == "SUCCESS") {
+			            vm.clearText();
+			        } else {
+			            alert(response.errors.join("\n"));
+			        }
+			    }, function failure(response) {
+			        alert(response.errors.join("\n"));
+			    });
+			} else {
+			    $scope.addCategoryForm.categoryName.$setDirty();
 			}
 		};
 	}
