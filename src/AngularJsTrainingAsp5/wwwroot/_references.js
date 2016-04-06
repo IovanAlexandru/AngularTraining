@@ -9,6 +9,7 @@
 /// <reference path="app/expenses/expense.service.js" />
 /// <reference path="app/expenses/view-all-expenses.controller.js" />
 /// <reference path="app/layout/add-expense.controller.js" />
+/// <reference path="demos/builtin-directives-demo.js" />
 /// <reference path="demos/controllers-demo.js" />
 /// <reference path="demos/scope-apply.js" />
 /// <reference path="demos/services/addition.service.js" />

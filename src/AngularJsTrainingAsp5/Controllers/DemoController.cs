@@ -37,5 +37,10 @@ namespace AngularJsTrainingAsp5.Controllers
         {
             return View();
         }
+
+        public IActionResult BuiltinDirectives()
+        {
+            return View();
+        }
     }
 }

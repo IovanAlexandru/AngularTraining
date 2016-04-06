@@ -1,0 +1,115 @@
+﻿<style type="text/css">
+    .red {
+        color: red;
+    }
+
+    .yellow-background {
+        background-color: yellow;
+    }
+
+    .odd-styles {
+        color: red;
+    }
+
+    .even-styles {
+        color: yellow;
+    }
+</style>
+
+<div class="container" ng-app="builtinDirectivesApp" ng-controller="BuiltinDirectivesCtrl">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">ngStyle</h3>
+        </div>
+        <div class="panel-body">
+            <input type="button" value="set color" ng-click="myStyle={color:'red'}">
+            <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
+            <input type="button" value="clear" ng-click="myStyle={}">
+            <br />
+            <span ng-style="myStyle">Sample Text</span>
+            <pre>myStyle={{myStyle}}</pre>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">ngClass</h3>
+        </div>
+        <div class="panel-body">
+            <input type="button" value="toggle red class" ng-click="redClass = !redClass" ng-init="redClass = false">
+            <input type="button" value="toggle yellow background" ng-click="yellowBackground = !yellowBackground" ng-init="yellowBackground = false">
+            <br />
+            <span ng-class="{ 'red': redClass, 'yellow-background': yellowBackground }">Sample Text</span>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">ngClassOdd and ngClassEven</h3>
+        </div>
+        <div class="panel-body">
+            <div ng-repeat="item in [1, 2, 3, 4]">
+                <p ng-class-odd="'odd-styles'" ng-class-even="'even-styles'">Number {{ item }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">ngReadonly and ngDisabled</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <input type="button" value="toggle read only" ng-click="readonlyVar = !readonlyVar" ng-init="readonlyVar = false">
+                <input type="button" value="toggle disabled" ng-click="disabledVar = !disabledVar" ng-init="disabledVar = false">
+            </div>
+            <div>
+                <div>
+                    Readonly: {{readonlyVar}} <br />
+                    <input type="text" ng-readonly="readonlyVar">
+                </div>
+                <div>
+                    Disabled: {{disabledVar}} <br />
+                    <input type="button" value="submit" ng-disabled="disabledVar" ng-click="doClickAlert()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">ngShow / ngHide / ngIf</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <input type="button" value="toggle show" ng-click="show = !show" ng-init="show = true">
+                <input type="button" value="toggle hide" ng-click="hide = !hide" ng-init="hide = false">
+                <input type="button" value="toggle ngiff" ng-click="ngiff = !ngiff" ng-init="ngiff = true">
+            </div>
+            <br/>
+            <div>
+                <div><strong>ngShow: {{show}}</strong></div>
+                <div ng-show="show">
+                    this is shown by ngShow
+                </div>
+            </div>
+            <br/>
+            <div>
+                <div><strong>ngHide: {{hide}}</strong></div>
+                <div ng-hide="hide">
+                    this is not hidden
+                </div>
+            </div>
+            <br/>
+            <div>
+                <div><strong>ngIf: {{ngiff}}</strong></div>
+                <div ng-if="ngiff">
+                    this is shown with ngIf
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts {
+        <script type="text/javascript" src="~/demos/builtin-directives-demo.js"></script>
+    }
