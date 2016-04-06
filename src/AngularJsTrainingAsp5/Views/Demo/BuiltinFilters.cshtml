@@ -1,0 +1,99 @@
+﻿<div class="container" ng-app="builtinFiltersApp" ng-controller="BuiltinFiltersCtrl">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">upparcase and lowercase</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <input type="text" ng-model="input">
+            </div>
+            <br />
+            <div>
+                Uppercase text: {{input | uppercase}}
+            </div>
+            <div>
+                Lowercase text: {{input | lowercase}}
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">number and currency</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <input type="number" ng-model="numberInput" ng-init="numberInput=23.123434">
+            </div>
+            <br />
+            <div>
+                Three digit format: {{numberInput | number:3}}
+            </div>
+            <div>
+                Currency dollars: {{numberInput | currency}}
+            </div>
+            <div>
+                Currency euro: {{numberInput | currency:'€':4}}
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">limitTo and orderBy</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="number" class="form-control" id="limitToNumber" ng-model="limitToNumber" ng-init="limitToNumber = 5" placeholder="number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <select class="form-control" id="orderOption" ng-model="orderOption">
+                                    <option value="name">Name</option>
+                                    <option value="year">Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <select class="form-control" id="orderDirection" ng-model="orderDirection">
+                                    <option value="asc">Ascending</option>
+                                    <option value="desc">Descending</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control" id="textFilter" ng-model="textFilter" placeholder="text filter">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="form-group">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="record in records | filter:textFilter | orderBy:buildOrderOption(orderOption, orderDirection) | limitTo:limitToNumber">
+                            <td>{{record.name}}</td>
+                            <td>{{record.year}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @section scripts {
+        <script type="text/javascript" src="~/demos/builtin-filters-demo.js"></script>
+    }

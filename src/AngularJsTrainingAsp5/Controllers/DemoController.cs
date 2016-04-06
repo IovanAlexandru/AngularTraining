@@ -42,5 +42,10 @@ namespace AngularJsTrainingAsp5.Controllers
         {
             return View();
         }
+
+        public IActionResult BuiltinFilters()
+        {
+            return View();
+        }
     }
 }
