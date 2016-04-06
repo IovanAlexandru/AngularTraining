@@ -12,6 +12,7 @@
 /// <reference path="demos/builtin-directives-demo.js" />
 /// <reference path="demos/builtin-filters-demo.js" />
 /// <reference path="demos/controllers-demo.js" />
+/// <reference path="demos/free-demo.js" />
 /// <reference path="demos/scope-apply-demo.js" />
 /// <reference path="demos/services/addition.service.js" />
 /// <reference path="demos/services/services-demo.js" />

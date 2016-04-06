@@ -86,21 +86,21 @@
                 <input type="button" value="toggle hide" ng-click="hide = !hide" ng-init="hide = false">
                 <input type="button" value="toggle ngiff" ng-click="ngiff = !ngiff" ng-init="ngiff = true">
             </div>
-            <br/>
+            <br />
             <div>
                 <div><strong>ngShow: {{show}}</strong></div>
                 <div ng-show="show">
                     this is shown by ngShow
                 </div>
             </div>
-            <br/>
+            <br />
             <div>
                 <div><strong>ngHide: {{hide}}</strong></div>
                 <div ng-hide="hide">
                     this is not hidden
                 </div>
             </div>
-            <br/>
+            <br />
             <div>
                 <div><strong>ngIf: {{ngiff}}</strong></div>
                 <div ng-if="ngiff">
@@ -109,7 +109,8 @@
             </div>
         </div>
     </div>
+</div>
 
-    @section scripts {
-        <script type="text/javascript" src="~/demos/builtin-directives-demo.js"></script>
-    }
+@section scripts {
+    <script type="text/javascript" src="~/demos/builtin-directives-demo.js"></script>
+}
