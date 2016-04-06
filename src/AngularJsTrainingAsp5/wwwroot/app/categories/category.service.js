@@ -2,9 +2,9 @@
 
     ExpenseManager.app.factory('CategoryService', CategoryService);
 
-    CategoryService.$inject = ['$http', '$q'];
+    CategoryService.$inject = ['$http', '$q', '$rootScope'];
 
-    function CategoryService($http, $q) {
+    function CategoryService($http, $q, $rootScope) {
         var interface = {};
         var COMMUNICATION_FAILURE = 'Communication failure or smth...';
         interface.addCategory = function (category) {
@@ -31,7 +31,7 @@
             }).success(function (response, status, headers) {
                 if (status == 200) {
                     categoryToAdd.id = response;
-                    _categories.push(categoryToAdd);
+                    $rootScope.$broadcast("CATEGORIES_UPDATED");
                     deferred.resolve(buildSuccessResponse());
                 } else {
                     deferred.resolve(buildErrorResponse(['Unable to save category.']));
