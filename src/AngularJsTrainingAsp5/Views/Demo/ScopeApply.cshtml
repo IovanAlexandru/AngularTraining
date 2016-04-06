@@ -1,0 +1,20 @@
+﻿<div class="container" ng-app="scopeApplyApp" ng-controller="ScopeApplyTestCtrl">
+    <h3>
+        Scope apply
+    </h3>
+
+    <div>
+        <strong>Inside counter: </strong> {{insideCounter}}
+    </div>
+    <div>
+        <strong>Outside counter: </strong> {{outsideCounter}}
+    </div>
+
+    <div>
+        <strong>Outside counter wrapped in scope apply: </strong> {{outsideCounter2}}
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/demos/scope-apply-demo.js"></script>
+}

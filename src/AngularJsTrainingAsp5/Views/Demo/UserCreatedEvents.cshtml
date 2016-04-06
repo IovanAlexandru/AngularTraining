@@ -1,0 +1,27 @@
+﻿<div class="container" ng-app="userCreatedEventsApp" ng-controller="EventsCtrl">
+    <h3>
+        User created events
+    </h3>
+
+    <input type="text" ng-model="inputModel" ng-focus="inputFocus()" ng-blur="inputFocusOut()" ng-keypress="inputKeyPress($event)" ng-mouseenter="mouseEnter()" ng-mouseleave="mouseLeave()"/>
+    <p><strong>Input text: </strong>{{inputModel}}</p>
+    <div>
+        <div>
+            <strong>Button:</strong> <strong>Button:</strong> <a ng-click="pressButton()" class="btn btn-primary">Press me once</a>
+        </div>
+        <div>
+            <strong>Button:</strong> <a ng-dblclick="doubleClickButton()" class="btn btn-primary">Press me twice</a>
+        </div>
+    </div>
+    <h4>
+        Logs
+    </h4>
+    <div>
+        <!-- Check out the expressions below-->
+        <p ng-repeat="log in logs">{{ logs.length - $index}} - {{log.text}}</p>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/demos/user-created-events-demo.js"></script>
+}

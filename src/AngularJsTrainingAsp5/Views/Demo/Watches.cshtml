@@ -1,0 +1,23 @@
+﻿<div class="container" ng-app="watchersApp" ng-controller="WatchersCtrl">
+    <h3>
+        Watches
+    </h3>
+
+    <input type="text" ng-model="inputModel" />
+    <p><strong>Input text: </strong>{{inputModel}}</p>
+    <div>
+        <strong>Watch calls: </strong> {{watchCalls}}
+    </div>
+
+    <h4>
+        Logs
+    </h4>
+    <div>
+        <!-- Check out the expressions below-->
+        <p ng-repeat="log in logs">{{ logs.length - $index}} - {{log.text}}</p>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/demos/watches-demo.js"></script>
+}

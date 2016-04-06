@@ -1,0 +1,25 @@
+﻿<div class="container" ng-app="servicesApp" ng-controller="ServicesCtrl">
+    <h3>
+        Services
+    </h3>
+
+    <div>
+        <strong>Input1: </strong> <input type="text" ng-model="input1" />
+    </div>
+    <div>
+        <strong>Input2: </strong> <input type="text" ng-model="input2" />
+    </div>
+
+    <div>
+        <strong>Sum: </strong> {{sum}}
+    </div>
+    <div>
+        <strong>Diff: </strong> {{diff}}
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/demos/services/services-demo.js"></script>
+    <script type="text/javascript" src="~/demos/services/addition.service.js"></script>
+    <script type="text/javascript" src="~/demos/services/substraction.service.js"></script>
+}

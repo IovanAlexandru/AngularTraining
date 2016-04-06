@@ -1,0 +1,47 @@
+﻿<div class="container" ng-app="controllersApp">
+    <h3>
+        Controllers
+    </h3>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Scope access</h3>
+        </div>
+        <div class="panel-body">
+            <div ng-controller="HelloCtrl">
+                <p>{{testText}}</p>
+                <p>I am: {{getControllerName()}}</p>
+                <div ng-controller="ChildCtrl">
+                    <p>I am: {{getChildControllerName()}} and I am inside {{ getControllerName() }}'s scope.</p>
+                </div>
+            </div>
+
+            <div ng-controller="Child2Ctrl">
+                <p>I am: {{getChildControllerName()}} and I am not inside "{{ getControllerName() }}"'s scope.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary" ng-controller="HelloCtrl">
+        <div class="panel-heading">
+            <h3 class="panel-title">Scope bindings</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <input ng-model="inputText" type="text" />
+            </div>
+            <h4>Two way binding</h4>
+            <div>
+                inputText = {{inputText}}
+            </div>
+
+            <h4>One way binding</h4>
+            <div>
+                inputText in one way binding = {{::inputText}}
+            </div>
+        </div>
+    </div>
+
+    @section scripts {
+        <script type="text/javascript" src="~/demos/controllers-demo.js"></script>
+    }
